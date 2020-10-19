@@ -1,3 +1,4 @@
 .idea
 db.*
 guessball/__pycache__
+guess_ball_app/__pycache__

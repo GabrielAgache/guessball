@@ -1,0 +1,26 @@
+<header>
+    <nav class="dark-blue">
+        <div class="nav-wrapper container">
+            <a style="font-weight: 700" class="brand-logo">
+                <i class="white-text material-icons hide-on-med-and-down">gps_fixed</i>
+                <span>SpotTheBall</span>
+            </a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="white-text material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a>Play</a></li>
+                <li><a href="{% url 'faq' %}">FAQ</a></li>
+                <li><a href="{% url 'aboutus' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul id="mobile-demo" class="sidenav">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a>Play</a></li>
+        <li><a href="{% url 'faq' %}">FAQ</a></li>
+        <li><a href="{% url 'aboutus' %}">About us</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+    </ul>
+</header>

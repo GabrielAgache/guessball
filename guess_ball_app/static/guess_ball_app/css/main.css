@@ -1,0 +1,71 @@
+html {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.gradient_under_nav {
+    background: #03a9f4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #FFFFFF,  #03a9f4);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #FFFFFF,  #03a9f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.inter_bold {
+    font-weight: 800;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.icon-block i {
+    transition: all 1s;
+}
+
+.icon-block i:hover {
+    transform: rotate(180deg) scale(1.5);
+}
+
+.light-blue {
+    background: #8ECAE6;
+}
+
+.blue-green {
+    background: #219EBC;
+}
+
+.dark-blue {
+    background: #023047;
+}
+
+.honey-yellow {
+    background: #FFB703;
+}
+
+.sun-orange {
+    background: #FB8500;
+}
+
+.light-blue-text {
+    color: #8ECAE6;
+}
+
+.blue-green-text {
+    color: #219EBC;
+}
+
+.dark-blue-text {
+    color: #023047;
+}
+
+.honey-yellow-text {
+    color: #FFB703;
+}
+
+.sun-orange-text {
+    color: #FB8500;
+}
