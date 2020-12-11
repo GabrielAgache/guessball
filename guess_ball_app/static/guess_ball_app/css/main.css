@@ -9,9 +9,30 @@ body {
 }
 
 .gradient_under_nav {
-    background: #03a9f4;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #FFFFFF,  #03a9f4);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #FFFFFF,  #03a9f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #03a9f4; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #FFFFFF, #03a9f4); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #FFFFFF, #03a9f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.prize_img {
+    width: 80%;
+    height: 80%;
+    border-radius: 40px;
+    object-fit: cover;
+}
+
+.prize_img {
+    transition: all 1s;
+}
+
+.prize_img:hover {
+    transform: rotate(180deg) scale(1.5);
+}
+
+.enter_comp_but {
+    border-radius: 15px;
+    margin: 60px 0;
+    width: 200px;
 }
 
 .inter_bold {

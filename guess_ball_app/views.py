@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
 
+from guess_ball_app.forms import SignUpForm
 from guess_ball_app.models import Faq, AboutInfo
 
 
@@ -19,3 +23,28 @@ def aboutus(request):
 
 def contact(request):
     return render(request, "guess_ball_app/contact.html")
+
+
+def sign_up(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'guess_ball_app/login.html', {'sign_up_form': form})
+    else:
+        return redirect('login')
+
+
+@login_required
+def profile(request):
+    return render(request, 'guess_ball_app/profile.html')
+
+
+def competitions(request):
+    return render(request, 'guess_ball_app/competitions.html')

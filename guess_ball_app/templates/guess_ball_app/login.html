@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="EN">
+{% include "guess_ball_app/head.html" %}
+<body>
+{% include "guess_ball_app/header.html" %}
+
+<main class="section">
+    <div class="row">
+        <div style="margin-top: 40px" class="col s12 m6">
+            <div class="container center">
+
+                <form style="padding: 40px" class="hoverable" method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    {% if next %}
+                        <input type="hidden" name="next" value="{{ next }}"/>
+                    {% endif %}
+                    <!-- login form  -->
+                    <h5 style="font-weight: 700; margin-bottom: 40px" class="orange-text">Log in</h5>
+                    <div class="input-field">
+                        <i class="material-icons prefix">mail</i>
+                        <input name="username" id="login_username" type="text" class="validate">
+                        <label for="login_username">Username</label>
+                    </div>
+                    <div class="input-field">
+                        <i class="material-icons prefix">vpn_key</i>
+                        <input name="password" id="login_password" type="password" class="validate">
+                        <label for="login_password">Password</label>
+                    </div>
+                    <button style="margin-top: 40px" class="btn orange waves-effect waves-light" type="submit">
+                        Login
+                    </button>
+                    {% if form.errors %}
+                        {{ form.errors }}
+                    {% endif %}
+                </form>
+            </div>
+
+        </div>
+        <div style="margin-top: 40px" class="col s12 m6">
+            <div class="container center">
+                <form style="padding: 40px" class="hoverable" method="post" action="{% url 'sign_up' %}">
+                    {% csrf_token %}
+                    <!-- sign up form  -->
+                    <h5 style="font-weight: 700; margin-bottom: 40px" class="orange-text">Sign up</h5>
+
+                    <div class="input-field">
+                        <i class="material-icons prefix">account_box</i>
+                        <input name="username" id="signup_username" type="text" class="validate">
+                        <label for="signup_username">Username</label>
+                    </div>
+                    <div class="input-field">
+                        <i class="material-icons prefix">mail</i>
+                        <input name="email" id="signup_email" type="email" class="validate">
+                        <label for="signup_email">E-mail</label>
+                    </div>
+                    <div class="input-field">
+                        <i class="material-icons prefix">vpn_key</i>
+                        <input name="password1" id="signup_password" type="password" class="validate">
+                        <label for="signup_password">Password</label>
+                    </div>
+                    <div class="input-field">
+                        <i class="material-icons prefix">vpn_key</i>
+                        <input name="password2" id="signup_repeat_password" type="password" class="validate">
+                        <label for="signup_repeat_password">Repeat password</label>
+                    </div>
+                    <button style="margin-top: 40px" class="btn orange waves-effect waves-light" type="submit">
+                        Sign up
+                    </button>
+                    {% if sign_up_form.errors %}
+                        {{ sign_up_form.errors }}
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% include "guess_ball_app/footer.html" %}
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="{% static "guess_ball_app/js/materialize.min.js" %}"></script>
+<script type="text/javascript" src="{% static "guess_ball_app/js/main.js" %}"></script>
+</body>
+</html>

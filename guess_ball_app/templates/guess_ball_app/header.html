@@ -1,4 +1,23 @@
 <header>
+    {% if user.is_authenticated %}
+        <div id="account_options" class="dark-blue dropdown-content horial">
+            <ul>
+                <li><a class="white-text" href="{% url 'profile' %}">
+                    <i class="material-icons left">account_circle</i>Profile
+                </a></li>
+                <li><a class="white-text" href="{% url 'profile' %}">
+                    <i class="material-icons left">history</i>History
+                </a></li>
+                <li><a class="white-text" href="{% url 'profile' %}">
+                    <i class="material-icons left">shopping_basket</i>Basket
+                </a></li>
+                <li><a class="white-text" href="{% url 'logout' %}">
+                    <i class="material-icons left">exit_to_app</i>Logout
+                </a></li>
+            </ul>
+        </div>
+
+    {% endif %}
     <nav class="dark-blue">
         <div class="nav-wrapper container">
             <a style="font-weight: 700" class="brand-logo">
@@ -7,20 +26,36 @@
             </a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="white-text material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a>Play</a></li>
+                {% if not user.is_authenticated %}
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                {% else %}
+                    <li><a href="{% url 'competitions' %}">Competitions</a></li>
+                {% endif %}
+                {% if not user.is_authenticated %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
                 <li><a href="{% url 'faq' %}">FAQ</a></li>
                 <li><a href="{% url 'aboutus' %}">About</a></li>
                 <li><a href="{% url 'contact' %}">Contact</a></li>
+                {% if user.is_authenticated %}
+                    <li>
+                        <a class="dropdown-trigger" data-target="account_options" href="#">
+                            Account&nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
+                    <li><a href="{% url 'profile' %}">Hello, {{ user.username }}</a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>
-
     <ul id="mobile-demo" class="sidenav">
         <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a>Play</a></li>
+        {% if not user.is_authenticated %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
         <li><a href="{% url 'faq' %}">FAQ</a></li>
-        <li><a href="{% url 'aboutus' %}">About us</a></li>
+        <li><a href="{% url 'aboutus' %}">About</a></li>
         <li><a href="{% url 'contact' %}">Contact</a></li>
     </ul>
 </header>

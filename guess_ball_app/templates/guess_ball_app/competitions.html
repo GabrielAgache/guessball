@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include "guess_ball_app/head.html" %}
+<body>
+{% include "guess_ball_app/header.html" %}
+<main>
+    <style>
+        .row {
+         margin: 0;
+        }
+    </style>
+    <!-- Monthly competition -->
+    <div class="light-blue">
+        <div class="container">
+            <div class="row center">
+                <h1 style="font-weight: 800; margin: 0; padding: 50px" class="white-text">Monthly competition</h1>
+                <h3 id="monthly_time" style="font-weight: 600" class="white-text"></h3>
+                <div class="col s12 m4">
+                    <h4 class="dark-blue-text" style="font-weight: 800">PS4</h4>
+                    <img class="prize_img" src="{% static 'guess_ball_app/img/ps_prize.png' %}">
+                </div>
+                <div class="col s12 m4">
+                    <h4 class="dark-blue-text" style="font-weight: 800">Xbox</h4>
+                    <img class="prize_img" src="{% static 'guess_ball_app/img/xbox_prize.png' %}">
+                </div>
+                <div class="col s12 m4">
+                    <h4 class="dark-blue-text" style="font-weight: 800">Random Prize</h4>
+                    <img class="prize_img" src="https://picsum.photos/300">
+                </div>
+            </div>
+            <div class="row center">
+                <a class="enter_comp_but btn-large red pulse">Enter</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weekly competition -->
+    <div class="orange">
+        <div class="container">
+            <div class="row center">
+                <h1 style="font-weight: 800; margin: 0; padding: 50px" class="white-text">Weekly competition</h1>
+                <h3 id="weekly_time" style="font-weight: 600" class="white-text"></h3>
+                <div class="col s12 m4">
+                    <h4 class="dark-blue-text" style="font-weight: 800">Keyboard</h4>
+                    <img class="prize_img" src="{% static 'guess_ball_app/img/keyboard_prize.png' %}">
+                </div>
+                <div class="col s12 m4">
+                    <h4 class="dark-blue-text" style="font-weight: 800">Mouse</h4>
+                    <img class="prize_img" src="{% static 'guess_ball_app/img/mouse_prize.png' %}">
+                </div>
+                <div class="col s12 m4">
+                    <h4 class="dark-blue-text" style="font-weight: 800">Random Prize</h4>
+                    <img class="prize_img" src="https://picsum.photos/300">
+                </div>
+            </div>
+            <div class="row center">
+                <a class="enter_comp_but btn-large red">Enter</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="deep-purple">
+        <div class="container">
+            <div class="row center">
+                <h1 style="font-weight: 800; margin: 0; padding: 50px" class="white-text">Daily competition</h1>
+                <h3 id="daily_time" style="font-weight: 600" class="white-text"></h3>
+                <div class="col s12 m4">
+                    <h4 class="dark-blue-text" style="font-weight: 800">Ball</h4>
+                    <img class="prize_img" src="{% static 'guess_ball_app/img/ball_prize.png' %}">
+                </div>
+                <div class="col s12 m4">
+                    <h4 class="dark-blue-text" style="font-weight: 800">Boots</h4>
+                    <img class="prize_img" src="{% static 'guess_ball_app/img/boots_prize.png' %}">
+                </div>
+                <div class="col s12 m4">
+                    <h4 class="dark-blue-text" style="font-weight: 800">Gloves</h4>
+                   <img class="prize_img" src="{% static 'guess_ball_app/img/gloves_prize.png' %}">
+                </div>
+            </div>
+            <div class="row center">
+                <a class="enter_comp_but btn-large red pulse">Enter</a>
+            </div>
+        </div>
+    </div>
+
+
+
+</main>
+{% include "guess_ball_app/footer.html" %}
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="{% static "guess_ball_app/js/materialize.min.js" %}"></script>
+<script type="text/javascript" src="{% static "guess_ball_app/js/main.js" %}"></script>
+</body>
+</html>
