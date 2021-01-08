@@ -1,11 +1,12 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from guess_ball_app.forms import SignUpForm
-from guess_ball_app.models import Faq, AboutInfo
+from guess_ball_app.models import Faq, AboutInfo, Competition
 
+def error_404(request, exception):
+    return render(request, 'guess_ball_app/404.html')
 
 def home(request):
     return render(request, "guess_ball_app/home.html")
@@ -36,7 +37,7 @@ def sign_up(request):
             login(request, user)
             return redirect('home')
         else:
-            return render(request, 'guess_ball_app/login.html', {'sign_up_form': form})
+            return render(request, 'guess_ball_app/templates/registration/login.html', {'sign_up_form': form})
     else:
         return redirect('login')
 
@@ -48,3 +49,9 @@ def profile(request):
 
 def competitions(request):
     return render(request, 'guess_ball_app/competitions.html')
+
+
+@login_required
+def competition(request, competition_id):
+    competition = get_object_or_404(Competition, pk=competition_id)
+    return render(request, 'guess_ball_app/competition.html', {'competition': competition})

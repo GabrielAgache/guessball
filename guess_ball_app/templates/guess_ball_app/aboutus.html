@@ -1,57 +1,48 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-{% include "guess_ball_app/head.html" %}
-<body>
+{% extends "guess_ball_app/commons/base.html" %}
+{% block title %}About us{% endblock %}
+{% block content %}
 
-{% include "guess_ball_app/header.html" %}
-
-<main>
-    <div style="margin-bottom: 0" class="light-blue section row">
-        <br><br>
-        <div class="container">
-            <h3 class="animate__animated animate__bounceInRight white-text inter_bold">About</h3>
-            <span style="display: inline-block" class="animate__animated animate__bounceInLeft white-text">We are a tralala. Lorem ipsum
+    <main>
+        <div style="margin-bottom: 0" class="light-blue section row">
+            <br><br>
+            <div class="container">
+                <h3 class="animate__animated animate__bounceInRight white-text inter_bold">About</h3>
+                <span style="display: inline-block" class="animate__animated animate__bounceInLeft white-text">We are a tralala. Lorem ipsum
                 dolor sit amet, consectetur adipiscing elit. In dui magna, dictum eu egestas at, molestie non ante.
                 Fusce mollis ante lorem. Sed sit amet vestibulum nibh. Nullam consequat dictum aliquam. </span>
+            </div>
+            <br><br> <br><br>
         </div>
-        <br><br> <br><br>
-    </div>
-    <div>
-    {% for about in all_about %}
-        {% if forloop.counter|divisibleby:2 %}
-            <div style="margin-top: 50px" class="row">
-                <div class="col s12 m4 push-m8 center-align">
-                    <h5 class="light-blue-text inter_bold">{{ about.title }}</h5>
-                    <i class="large material-icons orange-text">emoji_events</i>
-                </div>
-                <div class="col s12 m8 pull-m4">
-                    <div class="container left-align valign-wrapper">
-                        <p style="font-weight: 500">{{ about.info }}</p>
+        <div>
+            {% for about in all_about %}
+                {% if forloop.counter|divisibleby:2 %}
+                    <div style="margin-top: 50px" class="row">
+                        <div class="col s12 m4 push-m8 center-align">
+                            <h5 class="light-blue-text inter_bold">{{ about.title }}</h5>
+                            <i class="large material-icons orange-text">emoji_events</i>
+                        </div>
+                        <div class="col s12 m8 pull-m4">
+                            <div class="container left-align valign-wrapper">
+                                <p style="font-weight: 500">{{ about.info }}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        {% else %}
-            <div style="margin-top: 50px" class="row">
-                <div class="col s12 m4 center-align">
-                    <h5 class="light-blue-text inter_bold">{{ about.title }}</h5>
-                    <i class="large material-icons orange-text">policy</i>
-                </div>
-                <div class="col s12 m8">
-                    <div class="container left-align valign-wrapper">
-                        <p style="font-weight: 500">{{ about.info }}</p>
+                {% else %}
+                    <div style="margin-top: 50px" class="row">
+                        <div class="col s12 m4 center-align">
+                            <h5 class="light-blue-text inter_bold">{{ about.title }}</h5>
+                            <i class="large material-icons orange-text">policy</i>
+                        </div>
+                        <div class="col s12 m8">
+                            <div class="container left-align valign-wrapper">
+                                <p style="font-weight: 500">{{ about.info }}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        {% endif %}
-    {% endfor %}
-    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
 
-</main>
-{% include "guess_ball_app/footer.html" %}
-<!--JavaScript at end of body for optimized loading-->
-<script type="text/javascript" src="{% static "guess_ball_app/js/materialize.min.js" %}">
-</script>
-<script type="text/javascript" src="{% static "guess_ball_app/js/main.js" %}"></script>
-</body>
-</html>
+    </main>
+
+{% endblock %}

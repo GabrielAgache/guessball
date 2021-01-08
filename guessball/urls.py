@@ -20,3 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("guess_ball_app.urls"))
 ]
+
+
+handler404 = 'guess_ball_app.views.error_404'

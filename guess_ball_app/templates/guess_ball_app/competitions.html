@@ -1,9 +1,6 @@
+{% extends 'guess_ball_app/commons/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-{% include "guess_ball_app/head.html" %}
-<body>
-{% include "guess_ball_app/header.html" %}
+{% block content %}
 <main>
     <style>
         .row {
@@ -55,7 +52,7 @@
                 </div>
             </div>
             <div class="row center">
-                <a class="enter_comp_but btn-large red">Enter</a>
+                <a href="{% url 'competition' 1 %}" class="enter_comp_but btn-large red">Enter</a>
             </div>
         </div>
     </div>
@@ -83,13 +80,5 @@
             </div>
         </div>
     </div>
-
-
-
 </main>
-{% include "guess_ball_app/footer.html" %}
-<!--JavaScript at end of body for optimized loading-->
-<script type="text/javascript" src="{% static "guess_ball_app/js/materialize.min.js" %}"></script>
-<script type="text/javascript" src="{% static "guess_ball_app/js/main.js" %}"></script>
-</body>
-</html>
+{% endblock content %}

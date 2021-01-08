@@ -1,14 +1,10 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-{% include "guess_ball_app/head.html" %}
-<body>
-{% include "guess_ball_app/header.html" %}
+{% extends 'guess_ball_app/commons/base.html' %}
+{% block content %}
 <main>
     <div style="padding: 20px" class="light-blue section row center-align">
         <br><br>
 
-        <h1 class="animate__animated animate__bounceInLeft header center white-text inter_bold">Play spot the ball!</h1>
+        <h1 class="animate__animated animate__bounceInLeft header center white-text inter_bold">Play spot ball!</h1>
         <div class="row center">
             <h5 class="animate__animated animate__bounceInRight header col-s-12 white-text">
                 Play Spot the ball Ro now, find out where the ball is and win
@@ -66,11 +62,4 @@
         <br><br>
     </div>
 </main>
-
-{% include "guess_ball_app/footer.html" %}
-
-<!--JavaScript at end of body for optimized loading-->
-<script type="text/javascript" src="{% static "guess_ball_app/js/materialize.min.js" %}"></script>
-<script type="text/javascript" src="{% static "guess_ball_app/js/main.js" %}"></script>
-</body>
-</html>
+{% endblock content %}

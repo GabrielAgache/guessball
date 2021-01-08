@@ -8,6 +8,49 @@ body {
     flex-direction: column;
 }
 
+input:focus {
+  border-bottom: 1px solid #0D47A1 !important;
+  box-shadow: 0 1px 0 0 #0D47A1 !important;
+}
+
+label.active {
+  color: #0D47A1 !important;
+}
+
+#login-button {
+    border-radius: 20px !important;
+    box-shadow: none;
+    background: #0D47A1;
+    margin-top: 20px;
+    width: 50%;
+}
+
+/*#login-button, card {*/
+/*    box-shadow: none !important;*/
+/*}*/
+
+form a {
+    display: block;
+    margin: 30px 0;
+}
+
+#login-card {
+    border-radius: 20px;
+    height: 50%;
+    width: 50%;
+    padding: 65px 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  #login-card {
+      width: 95%;
+      padding: 20px 10px;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+  }
+}
+
 .gradient_under_nav {
     background: #03a9f4; /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #FFFFFF, #03a9f4); /* Chrome 10-25, Safari 5.1-6 */
@@ -16,9 +59,12 @@ body {
 
 .prize_img {
     width: 80%;
-    height: 80%;
     border-radius: 40px;
     object-fit: cover;
+}
+
+i.active {
+    color: #0D47A1 !important;
 }
 
 .prize_img {

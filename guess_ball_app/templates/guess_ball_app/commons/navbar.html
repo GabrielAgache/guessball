@@ -21,19 +21,17 @@
     <nav class="dark-blue">
         <div class="nav-wrapper container">
             <a style="font-weight: 700" class="brand-logo">
-                <i class="white-text material-icons hide-on-med-and-down">gps_fixed</i>
+                <i class="white-text large material-icons hide-on-med-and-down">gps_fixed</i>
                 <span>SpotTheBall</span>
             </a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="white-text material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
+            <ul class="right hide-on-med-and-down inter_bold">
                 {% if not user.is_authenticated %}
                     <li><a href="{% url 'home' %}">Home</a></li>
                 {% else %}
                     <li><a href="{% url 'competitions' %}">Competitions</a></li>
                 {% endif %}
-                {% if not user.is_authenticated %}
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                {% endif %}
+
                 <li><a href="{% url 'faq' %}">FAQ</a></li>
                 <li><a href="{% url 'aboutus' %}">About</a></li>
                 <li><a href="{% url 'contact' %}">Contact</a></li>
@@ -45,6 +43,9 @@
                         </a>
                     </li>
                     <li><a href="{% url 'profile' %}">Hello, {{ user.username }}</a></li>
+                {% endif %}
+                {% if not user.is_authenticated %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
                 {% endif %}
             </ul>
         </div>
