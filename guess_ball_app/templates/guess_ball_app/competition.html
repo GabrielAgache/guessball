@@ -1,4 +1,55 @@
 {% extends 'guess_ball_app/commons/base.html' %}
 {% block content %}
-    <h1>This is the page for the competition {{ competition.name }}</h1>
+    <main class="container section">
+        <div class="center-align">
+            <h3 class="inter_bold">Submit your entry for {{ competition.name }}</h3>
+        </div>
+        <div style="margin-top: 50px" class="row ">
+            <div class="col s8 ">
+                <div class="row valign-wrapper">
+                    <img id="competition_image" src="https://picsum.photos/800/400" alt="competition_image">
+                </div>
+                <div class="row">
+                    <a id="enter_button" style="margin: 10px 0 0 10px; display: inline"
+                       class="waves-effect waves-light btn-large right">Enter ticket</a>
+                    <div class="input-field right">
+                        <input id="comp_entry_x" type="number">
+                        <label class="indigo-text" for="comp_entry_x">X</label>
+                    </div>
+                    <div class="input-field right">
+                        <input id="comp_entry_y" type="number">
+                        <label class="indigo-text" for="comp_entry_y">Y</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <ul id="ticket_collection" class="collection">
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle indigo">local_activity</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons red-text">delete</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle green">insert_chart</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">delete</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle red">play_arrow</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">delete</i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
 {% endblock content %}

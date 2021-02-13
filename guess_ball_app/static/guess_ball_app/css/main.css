@@ -9,18 +9,18 @@ body {
 }
 
 input:focus {
-  border-bottom: 1px solid #0D47A1 !important;
-  box-shadow: 0 1px 0 0 #0D47A1 !important;
+  border-bottom: 1px solid #023047 !important;
+  box-shadow: 0 1px 0 0 #023047 !important;
 }
 
 label.active {
-  color: #0D47A1 !important;
+  color: #023047 !important;
 }
 
 #login-button {
     border-radius: 20px !important;
     box-shadow: none;
-    background: #0D47A1;
+    background: #023047;
     margin-top: 20px;
     width: 50%;
 }
@@ -40,6 +40,12 @@ form a {
     width: 50%;
     padding: 65px 50px;
 }
+
+#competition_image {
+    width: 100%;
+    height: auto;
+}
+
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
@@ -64,7 +70,7 @@ form a {
 }
 
 i.active {
-    color: #0D47A1 !important;
+    color: #023047 !important;
 }
 
 .prize_img {

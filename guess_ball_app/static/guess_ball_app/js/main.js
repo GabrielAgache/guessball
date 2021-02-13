@@ -3,7 +3,9 @@ Date.prototype.addHours = function(h) {
   return this;
 }
 
-initTimers()
+initTimers();
+setOnCompetitionImageClickHandle();
+initTicketList();
 
 function initTimers() {
 
@@ -19,8 +21,6 @@ function initTimers() {
         initCountdownTimer("daily_time", new Date().addHours(0.01).getTime());
     }
 }
-
-
 
 function initCountdownTimer(obj_id, countdownDate) {
 
@@ -49,6 +49,56 @@ function initCountdownTimer(obj_id, countdownDate) {
             document.getElementById(obj_id).innerHTML = "EXPIRED";
         }
     }, 1000);
+}
+
+function setOnCompetitionImageClickHandle() {
+    window.onload = () => {
+        let competitionImage = document.getElementById("competition_image");
+        if (competitionImage != null) {
+            competitionImage.addEventListener("click", (e) => {
+                console.log("lckjsad");
+                updateEntryInputs(e.offsetX, e.offsetY);
+            });
+        }
+    };
+}
+
+function updateEntryInputs(offsetX, offsetY) {
+    document.getElementById('comp_entry_x').value = offsetX;
+    document.getElementById('comp_entry_y').value = offsetY;
+    document.querySelectorAll("label").forEach((label) => {
+        label.classList.add("active");
+    })
+}
+
+function initTicketList() {
+    window.onload = () => {
+        let enterButton = document.getElementById("enter_button");
+        if (enterButton != null) {
+            enterButton.addEventListener("click", (e) => {
+                // updateEntryInputs(e.offsetX, e.offsetY);
+                createAndAddTicket();
+            });
+        }
+    };
+}
+
+function createAndAddTicket() {
+    let ticketList = document.getElementById("ticket_collection");
+    let ticketLi = document.createElement("li");
+    ticketLi.classList.add("collection-item", "avatar");
+    let ticketIcon = document.createElement("i");
+    ticketIcon.classList.add("material-icons", "circle", "indigo");
+    ticketIcon.innerHTML = "local_activity";
+    let ticketTitle = document.createElement("span");
+    ticketTitle.classList.add("title");
+    ticketTitle.innerHTML = "Title";
+    let ticketContent = document.createElement("p");
+    ticketContent.innerHTML = "First Line <br> Second Line";
+    let ticketDeleteIcon = document.createElement("a");
+    ticketDeleteIcon.classList.add()
+    ticketLi.append(ticketIcon, ticketTitle, ticketContent);
+    ticketList.append(ticketLi);
 }
 
 document.addEventListener('DOMContentLoaded', M.AutoInit());

@@ -1,41 +1,42 @@
 {% extends 'guess_ball_app/commons/base.html' %}
 {% block content %}
-    <main style="display: flex; justify-content: center; align-items: center" class="section container">
+        <main class="grey lighten-5 section">
+            <div style="display: flex; justify-content: center; align-items: center" class="container section">
+            <div id="login-card" class="card" style="">
 
-
-        <div id="login-card" class="card" style="">
-
-            <div style="color: #0D47A1; margin: 30px" class="center-align">
-                <div class="row"><i class="material-icons large">gps_fixed</i></div>
-                <div><h5 class="inter_bold">Sign in to Spot The Ball</h5></div>
-            </div>
-
-            {% if next %}
-                <p>Please login to see this page</p>
-            {% endif %}
-
-            <form method="post" action="{% url 'login' %}">
-                {% csrf_token %}
-                <div class="input-field">
-                    <i class="material-icons dark-blue-text prefix">account_circle</i>
-                    {{ form.username }}
-                    {{ form.username.label_tag }}
+                <div style="color: #0D47A1; margin: 30px" class="center-align">
+                    <div><i class="material-icons blue-text text-darken-2 large">gps_fixed</i></div>
+                    <div><h5 class="inter_bold blue-text text-darken">Sign in to Spot The Ball</h5></div>
                 </div>
-                <div class="input-field">
-                    <i class="material-icons dark-blue-text prefix">lock</i>
-                    {{ form.password }}
-                    {{ form.password.label_tag }}
-                </div>
-                <a href="{% url 'sign_up' %}">Dont have an account? Sign up</a>
-                <a href="{% url 'password_reset' %}">Forgot your password?</a>
-                {% if form.errors %}
-                    <p class="red-text text-darken-1">Login failed. Incorrect username or password.</p>
+
+                {% if next %}
+                    <p class="orange-text darken-2">Please login to see this page</p>
                 {% endif %}
-                <div class="center">
-                    <button id="login-button" class="btn-large rounded dark-blue inter_bold" type="submit">Sign in</button>
-                </div>
-                <input type="hidden" name="next" value="{{ next }}">
-            </form>
-        </div>
-    </main>
+
+                <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="input-field">
+                        <i class="material-icons blue-text text-darken-2 prefix">account_circle</i>
+                        {{ form.username }}
+                        {{ form.username.label_tag }}
+                    </div>
+                    <div class="input-field">
+                        <i class="material-icons blue-text text-darken-2 prefix">lock</i>
+                        {{ form.password }}
+                        {{ form.password.label_tag }}
+                    </div>
+                    <a href="{% url 'sign_up' %}">Dont have an account? Sign up</a>
+                    <a href="{% url 'password_reset' %}">Forgot your password?</a>
+                    {% if form.errors %}
+                        <p class="red-text text-darken-1">Login failed. Incorrect username or password.</p>
+                    {% endif %}
+                    <div class="center">
+                        <button id="login-button" class="btn-large rounded indigo darken-2 inter_bold" type="submit">Sign in
+                        </button>
+                    </div>
+                    <input type="hidden" name="next" value="{{ next }}">
+                </form>
+            </div>
+            </div>
+        </main>
 {% endblock %}
